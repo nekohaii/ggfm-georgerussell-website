@@ -3,12 +3,12 @@ function App() {
   return (
     <>
     <header>
-        <h1>George Russell: The Journey of #63</h1>
+        <h1>George Russell</h1>
       </header>
 
       <main>
         <section className="hero">
-          <h2>A Scrollytelling Experience</h2>
+          <h2> The Journey of #63 </h2>
         </section>
 
         <section className="career-stats">
