@@ -5,6 +5,22 @@
   text-align: center;
 }
 
+.hero {
+  background-image: url('https://images.ctfassets.net/1fvlg6xqnm65/66fJ1wrYcN0LBtsmPQjcTC/0ffbd03a4a5e0cc5396746216c1d154f/George_Russell.png?w=1920&q=75&fm=webp');
+  height: 500px;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
