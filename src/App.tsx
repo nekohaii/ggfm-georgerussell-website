@@ -5,14 +5,23 @@ import SmoothScroll from './SmoothScroll'
 function App() {
   return (
     <SmoothScroll>
-      <header>
-        <h1>George Russell</h1>
-        <button>Home</button>
-        <button>About</button>
-        <button>Contact</button>
+      <header className="site-header">
+        <div className="site-header__inner">
+          <h1 className="logo-text">George Russell</h1>
+          <nav aria-label="Main">
+            <button>Home</button>
+            <button>About</button>
+            <button>Contact</button>
+          </nav>
+        </div>
       </header>
-
       <main>
+        <section className="hero-cyan">
+          <div className="hero-cyan__content">
+            <h1>George Russell</h1>
+            <p className="tagline">Mercedes-AMG PETRONAS Formula One Driver</p>
+          </div>
+        </section>
 
         <section className="career-stats">
           <h2>Career Stats</h2>

@@ -1,3 +1,4 @@
+/* Base app container: keeps content centered on large screens */
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -5,6 +6,18 @@
   text-align: center;
 }
 
+/* Global layout variables: tweak these to change header/hero quickly */
+:root {
+  --header-h: 72px;                 /* height to offset the fixed header */
+  --hero-cyan-rgb: 0, 200, 255;     /* cyan color in rgb triplet */
+  --hero-cyan-alpha: 0.85;          /* strength of the cyan overlay */
+  --hero-image-opacity: 0.18;        /* strength of the background image */
+}
+
+/* Prevent tiny horizontal scrollbars from full-bleed sections */
+html, body { overflow-x: hidden; }
+
+/* Legacy hero demo (not used by the page) — kept for learning */
 .hero {
   background-image: url('https://images.ctfassets.net/1fvlg6xqnm65/66fJ1wrYcN0LBtsmPQjcTC/0ffbd03a4a5e0cc5396746216c1d154f/George_Russell.png?w=1920&q=75&fm=webp');
   height: 500px;
@@ -57,7 +70,102 @@
   color: #888;
 }
 
-/* Image Reveal Section - Text Left, Image Right */
+/* Fixed site header — uses --header-h for consistent sizing */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  height: var(--header-h);
+  padding: 0 2rem;
+  background: rgba(0, 200, 255, 0.18);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+}
+
+.site-header__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-text {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+/* Cyan hero: full-bleed, fills the screen minus the header */
+.hero-cyan {
+  position: relative;
+  min-height: calc(100svh - var(--header-h));
+  margin-top: var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent; /* color moved to overlay */
+  color: #ffffff;
+  overflow: hidden;
+  /* make the hero full-bleed across the viewport width */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  /* push content below the fixed header */
+  padding-top: var(--header-h);
+}
+
+.hero-cyan::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('https://i.redd.it/y27y3oeo797f1.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: var(--hero-image-opacity); /* image strength */
+  filter: grayscale(100%);
+}
+
+/* Cyan color overlay independent of the image layer */
+.hero-cyan::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(var(--hero-cyan-rgb), var(--hero-cyan-alpha));
+}
+
+.hero-cyan__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+/* optional hero strength presets */
+.hero-cyan.is-strong {
+  --hero-cyan-alpha: 0.95;
+  --hero-image-opacity: 0.10;
+}
+  
+.hero-cyan.is-light {
+  --hero-cyan-alpha: 0.60;
+  --hero-image-opacity: 0.25;
+}
+
+.hero-cyan__content h1 {
+  font-size: 4rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.hero-cyan__content .tagline {
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Content sections used below the hero */
 .image-reveal-section {
   display: flex;
   gap: 3rem;
@@ -91,8 +199,8 @@
 .reveal-image {
   width: 100%;
   max-width: 500px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+  border-radius: 0;
+  box-shadow: none;
 }
 
 /* Mobile responsive */
@@ -103,5 +211,14 @@
   
   .text-content {
     text-align: center;
+  }
+}
+
+/* Mobile overrides: shorter header and slightly different strengths */
+@media (max-width: 768px) {
+  :root {
+    --header-h: 56px;
+    --hero-cyan-alpha: 0.9;
+    --hero-image-opacity: 0.12;
   }
 }

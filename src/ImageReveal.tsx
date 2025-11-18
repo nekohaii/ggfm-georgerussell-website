@@ -9,40 +9,34 @@ interface ImageRevealProps {
     alt: string;
     title?: string;
     description?: string;
-    className?: string; // For Tailwind/Shadcn styling
+    className?: string; // optional extra classes
 }
 
 const ImageReveal: React.FC<ImageRevealProps> = ({ src, alt, title, description, className }) => {
     const imageRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
-        // 1. Initial State: The image starts hidden and slightly displaced
-        gsap.set(imageRef.current, { 
-            opacity: 0, 
-            x: 50
-        });
+        // 1) Start: hidden and shifted right
+        gsap.set(imageRef.current, { opacity: 0, x: 200 });
 
-        // 2. The Animation: Fades in and moves from right
+        // 2) Animate in when scrolled into view
         gsap.to(imageRef.current, {
-            opacity: 1, 
+            opacity: 1,
             x: 0,
-            duration: 1.5,
-            ease: "power2.out",
-            
-            // 3. The ScrollTrigger Configuration
+            duration: 1.6,
+            ease: 'power2.out',
             scrollTrigger: {
                 trigger: imageRef.current,
-                start: "top 85%", // Animation starts when the top of the image hits 85% from the top of the viewport
-                toggleActions: "play none none none", // Play once on scroll down, then do nothing
-                // markers: true // <-- Uncomment this line to debug the scroll start/end points in the browser!
-            }
+                start: 'top 85%', // when image top reaches 85% down the viewport
+                toggleActions: 'play none none none', // play once
+                // markers: true, // uncomment to debug positions
+            },
         });
-        
-    }, { scope: imageRef, dependencies: [] }); // Empty dependencies array means it runs once on mount
+    }, { scope: imageRef, dependencies: [] }); // runs once on mount
 
     return (
         <div className={`image-reveal-section ${className || ''}`}>
-            {/* Text on the left (if provided) */}
+            {/* Text on the left (optional) */}
             {(title || description) && (
                 <div className="text-content">
                     {title && <h2>{title}</h2>}
