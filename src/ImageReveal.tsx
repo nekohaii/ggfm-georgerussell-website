@@ -17,15 +17,15 @@ const ImageReveal: React.FC<ImageRevealProps> = ({ src, alt, title, description,
 
     useGSAP(() => {
         // 1) Start: hidden and shifted right
-        gsap.set(imageRef.current, { opacity: 0, x: 200 });
+        gsap.set(imageRef.current, { opacity: 0, x: 500 });
 
         // 2) Animate in when scrolled into view
         gsap.to(imageRef.current, {
-            opacity: 1,
-            x: 0,
-            duration: 1.6,
-            ease: 'power2.out',
-            scrollTrigger: {
+            opacity: 1, 
+            x: 150, 
+            duration: 1.5,
+            ease: 'power2.out', 
+            scrollTrigger: { 
                 trigger: imageRef.current,
                 start: 'top 85%', // when image top reaches 85% down the viewport
                 toggleActions: 'play none none none', // play once

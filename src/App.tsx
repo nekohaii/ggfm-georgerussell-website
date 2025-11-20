@@ -10,8 +10,8 @@ function App() {
           <h1 className="logo-text">George Russell</h1>
           <nav aria-label="Main">
             <button>Home</button>
-            <button>About</button>
-            <button>Contact</button>
+            <button>Origins</button>
+            <button>Archive</button>
           </nav>
         </div>
       </header>
@@ -28,7 +28,7 @@ function App() {
           <p>Wins: 5, Podiums: 23, Poles: 7</p>
         </section>
 
-        <ImageReveal 
+        <ImageReveal className=""
           title="F2 Champion 2018"
           description="Following his GP3 success, Russell won the FIA Formula 2 Championship in his rookie season, becoming the first British driver to do so since Lewis Hamilton."
           src="https://images.ctfassets.net/1fvlg6xqnm65/66fJ1wrYcN0LBtsmPQjcTC/0ffbd03a4a5e0cc5396746216c1d154f/George_Russell.png?w=800&q=75&fm=webp"
