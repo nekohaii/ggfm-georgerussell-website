@@ -7,33 +7,8 @@
   text-align: center;
 }
 
-/* Global layout variables: tweak these to change header/hero quickly */
-:root {
-  --header-h: 72px;                 /* height to offset the fixed header */
-  --hero-cyan-rgb: 0, 200, 255;     /* cyan color in rgb triplet */
-  --hero-cyan-alpha: 0.85;          /* strength of the cyan overlay */
-  --hero-image-opacity: 1;        /* strength of the background image */
-}
-
 html, body {
   overflow: hidden;
-}
-
-/* Legacy hero demo (not used by the page) — kept for learning */
-.hero {
-  background-image: url('https://images.ctfassets.net/1fvlg6xqnm65/66fJ1wrYcN0LBtsmPQjcTC/0ffbd03a4a5e0cc5396746216c1d154f/George_Russell.png?w=1920&q=75&fm=webp');
-  height: 500px;
-  text-align: center;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
-  font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .logo {
@@ -79,7 +54,7 @@ html, body {
   left: 0;
   right: 0;
   z-index: 30;
-  height: var(--header-h);
+  height: 72px;
   padding: 0 2rem;
   background: rgba(0, 200, 255, 0.18);
   border-bottom: 1px solid rgba(255,255,255,0.12);
@@ -101,11 +76,11 @@ html, body {
   margin: 0;
 }
 
-/* Cyan hero: full-bleed, fills the screen minus the header */
-.hero-cyan {
+/* Hero banner: full-bleed, fills the screen minus the header */
+.hero-banner {
   position: relative;
-  min-height: calc(100svh - var(--header-h));
-  margin-top: var(--header-h);
+  min-height: calc(100svh - 72px);
+  margin-top: 72px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -117,10 +92,10 @@ html, body {
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   /* push content below the fixed header */
-  padding-top: var(--header-h);
+  padding-top: 72px;
 }
 
-.hero-cyan::before {
+.hero-banner::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -128,41 +103,30 @@ html, body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: var(--hero-image-opacity); /* image strength */
+  opacity: 1; /* image strength */
   filter: grayscale(100%);
 }
 
-/* Cyan color overlay independent of the image layer */
-.hero-cyan::after {
+/* Color overlay independent of the image layer */
+.hero-banner::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(var(--hero-cyan-rgb), var(--hero-cyan-alpha));
+  background: rgba(0, 200, 255, 0.85);
 }
 
-.hero-cyan__content {
+.hero-banner-content {
   position: relative;
   z-index: 1;
   text-align: center;
 }
 
-/* optional hero strength presets */
-.hero-cyan.is-strong {
-  --hero-cyan-alpha: 0.95;
-  --hero-image-opacity: 0.10;
-}
-  
-.hero-cyan.is-light {
-  --hero-cyan-alpha: 0.60;
-  --hero-image-opacity: 0.25;
-}
-
-.hero-cyan__content h1 {
+.hero-banner-content h1 {
   font-size: 4rem;
   margin: 0 0 0.5rem 0;
 }
 
-.hero-cyan__content .tagline {
+.hero-banner-content .tagline {
   margin: 0;
   opacity: 0.9;
 }
@@ -214,13 +178,30 @@ html, body {
   .text-content {
     text-align: center;
   }
+
+  .hero-banner {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 /* Mobile overrides: shorter header and slightly different strengths */
 @media (max-width: 768px) {
-  :root {
-    --header-h: 56px;
-    --hero-cyan-alpha: 0.9;
-    --hero-image-opacity: 0.12;
+  .site-header {
+    height: 56px;
+  }
+
+  .hero-banner {
+    min-height: calc(100svh - 56px);
+    margin-top: 56px;
+    padding-top: 56px;
+  }
+
+  .hero-banner::after {
+    background: rgba(0, 200, 255, 0.9);
+  }
+
+  .hero-banner::before {
+    opacity: 0.12;
   }
 }

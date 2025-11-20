@@ -16,8 +16,8 @@ function App() {
         </div>
       </header>
       <main>
-        <section className="hero-cyan">
-          <div className="hero-cyan__content">
+        <section className="hero-banner">
+          <div className="hero-banner-content">
             <h1>George Russell</h1>
             <p className="tagline">Mercedes-AMG PETRONAS Formula One Driver</p>
           </div>
