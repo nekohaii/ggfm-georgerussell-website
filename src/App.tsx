@@ -7,7 +7,7 @@ function App() {
     <SmoothScroll>
       <header className="site-header">
         <div className="site-header__inner">
-          <h1 className="logo-text">George Russell</h1>
+          <h1 className="logo-text">GR63</h1>
           <nav aria-label="Main">
             <button>Home</button>
             <button>Origins</button>
