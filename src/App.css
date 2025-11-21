@@ -68,7 +68,7 @@ html, body {
 }
 
 .page-shell {
-  margin-top: 72px;
+  margin-top: calc(72px + 1.5rem);
   padding: 0 2rem 3rem;
   min-height: calc(100vh - 72px);
 }
