@@ -71,7 +71,7 @@ const archiveTiles = [
       ],
       season2025: ['Wins: 2 • Podiums: 8 • Poles: 2', 'Fastest laps: 3 • DNFs: 0'],
     },
-    footer: '2019-2021: Qualifying specialist → 2025: Mercedes team leader.',
+    footer: '2019-2021: Qualifying specialist → 2025: Mercedes team leader. (Stats accurate as of November 21, 2025.)',
   },
   {
     id: 8,

@@ -165,12 +165,31 @@ html, body {
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  height: 420px;
+  padding-bottom: 1.75rem;
 }
 
-.hero-visuals img {
+.hero-visuals figure img {
   display: block;
   width: 100%;
-  height: auto;
+  flex: 1;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-visuals figure:first-of-type img {
+  object-fit: contain;
+}
+
+.hero-visuals figure:last-of-type img {
+  object-fit: cover;
+}
+
+.hero-visuals figcaption {
+  margin-top: auto;
+  padding-top: 1rem;
 }
 
 .hero-visuals figcaption {
@@ -493,7 +512,7 @@ html, body {
   }
 
   .hero-banner::before {
-    opacity: 0.12;
+    opacity: 0.5;
   }
 
   .site-nav {

@@ -1,5 +1,4 @@
 import React from 'react'
-import ImageReveal from '../ImageReveal'
 
 /**
  * Origins page chronologically highlights Russell's progression.
@@ -43,12 +42,7 @@ const Origins: React.FC = () => {
           </p>
         </div>
         <div className="timeline-section__media">
-          <ImageReveal
-            title="F2 Champion 2018"
-            description="The momentum from GP3 carried into F2, where Russell asserted himself as the benchmark rookie."
-            src="/assets/images/f2-2018.jpg"
-            alt="George Russell celebrating the 2018 Formula 2 title"
-          />
+          <img src="/assets/images/f2-2018.jpg" alt="George Russell celebrating the 2018 Formula 2 title" />
         </div>
       </section>
 
@@ -104,12 +98,7 @@ const Origins: React.FC = () => {
           </p>
         </div>
         <div className="timeline-section__media">
-          <ImageReveal
-            title="First F1 Victory 2022"
-            description="São Paulo, Brazil, the day Russell turned promise into proof."
-            src="/assets/images/brazil-2022-podium.jpg"
-            alt="George Russell celebrating his first Formula 1 victory in Brazil 2022"
-          />
+          <img src="/assets/images/brazil-2022-podium.jpg" alt="George Russell celebrating his first Formula 1 victory in Brazil 2022" />
         </div>
       </section>
 
@@ -131,8 +120,8 @@ const Origins: React.FC = () => {
           </ul>
         </div>
         <div className="timeline-section__media">
-          <img src="/assets/images/mr-consistency.jpg" alt="George Russell celebrating a podium finish" />
-          <img src="/assets/images/mercedes-current.jpg" alt="Mercedes W15/W16 during the 2024-2025 era" />
+          <img src="/assets/images/consistency-era-podium.jpg" alt="George Russell celebrating a 2024 podium finish" />
+          <img src="/assets/images/mercedes-2024-lead.jpg" alt="Mercedes W15/W16 during the 2024 season" />
         </div>
       </section>
 
@@ -152,7 +141,7 @@ const Origins: React.FC = () => {
           </ul>
         </div>
         <div className="timeline-section__media">
-          <img src="/assets/images/mercedes-current.jpg" alt="George Russell leading the Mercedes team in 2025" />
+          <img src="/assets/images/mercedes-2025-lead.jpg" alt="George Russell leading the Mercedes team in 2025" />
         </div>
       </section>
     </div>
