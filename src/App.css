@@ -98,7 +98,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: transparent; /* color moved to overlay */
+  background: radial-gradient(circle at 15% 20%, rgba(0, 212, 255, 0.45), transparent 60%), #0095cf;
   color: #ffffff;
   overflow: hidden;
   /* make the hero full-bleed across the viewport width */
@@ -116,8 +116,8 @@ html, body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 1; /* image strength */
-  filter: grayscale(100%);
+  opacity: 0.4; /* image strength */
+  filter: grayscale(70%);
 }
 
 /* Color overlay independent of the image layer */
@@ -125,16 +125,25 @@ html, body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 200, 255, 0.85);
+  background: linear-gradient(135deg, rgba(0, 200, 255, 0.9), rgba(0, 120, 255, 0.85));
 }
 
 .hero-banner-content {
   position: relative;
   z-index: 1;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 /* Hero layout tweaks for the home page */
+.hero-banner-content h1 {
+  font-size: clamp(3.2rem, 9vw, 4.8rem);
+  letter-spacing: 0.04em;
+  text-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
 .hero-banner-content .lede {
   margin-top: 1rem;
   max-width: 42rem;
@@ -296,6 +305,16 @@ html, body {
 }
 
 /* Origins page timeline card styling */
+.text-content h2,
+.timeline-section h3 {
+  color: #00d4ff;
+}
+
+.text-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
 .timeline-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -316,7 +335,6 @@ html, body {
   font-size: 1.05rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #8ae8ff;
 }
 
 .timeline-section p {
@@ -456,12 +474,6 @@ html, body {
 .text-content {
   flex: 1;
   text-align: left;
-}
-
-.text-content h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #00d4ff;
 }
 
 .text-content p {

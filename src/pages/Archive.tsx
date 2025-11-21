@@ -65,7 +65,7 @@ const archiveTiles = [
     alt: 'Graphic showing career statistics for George Russell',
     stats: {
       career: [
-        'Races: 149 • Wins: 5 • Podiums: 23',
+        'Races: 149 Wins: 5 • Podiums: 23',
         'Poles: 7 • Fastest laps: 11 • Points: 990',
         'Best season result: 4th (2022)',
       ],
